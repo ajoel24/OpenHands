@@ -423,6 +423,7 @@ node /opt/agent-canvas/static-server.mjs \
   --runtime-services-info "$RUNTIME_SERVICES_INFO" \
   --route "/api/automation=http://127.0.0.1:${AUTOMATION_PORT}" \
   --route "/api=http://127.0.0.1:${AGENT_SERVER_PORT}" \
+  --route "/telegram=http://127.0.0.1:${AGENT_SERVER_PORT}" \
   --route "/server_info=http://127.0.0.1:${AGENT_SERVER_PORT}" \
   --route "/sockets=http://127.0.0.1:${AGENT_SERVER_PORT}" \
   --route "/alive=http://127.0.0.1:${AGENT_SERVER_PORT}" \
@@ -473,6 +474,7 @@ if [ -n "${PUBLIC_MODE_PORT:-}" ]; then
     --runtime-services-info "$RUNTIME_SERVICES_INFO" \
     --route "/api/automation=http://127.0.0.1:${AUTOMATION_PORT}" \
     --route "/api=http://127.0.0.1:${AGENT_SERVER_PORT}" \
+    --route "/telegram=http://127.0.0.1:${AGENT_SERVER_PORT}" \
     --route "/server_info=http://127.0.0.1:${AGENT_SERVER_PORT}" \
     --route "/sockets=http://127.0.0.1:${AGENT_SERVER_PORT}" \
     --route "/alive=http://127.0.0.1:${AGENT_SERVER_PORT}" \
