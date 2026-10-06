@@ -21,6 +21,22 @@ describe("ACP_PROVIDERS", () => {
     );
   });
 
+  it("passes every pi data field through from the pinned client registry", () => {
+    const pi = ACP_PROVIDERS.find(({ key }) => key === "pi");
+    const client = CLIENT_ACP_PROVIDERS.pi;
+    expect(pi?.display_name).toBe(client.display_name);
+    expect(pi?.default_command).toEqual([...client.default_command]);
+    expect(pi?.available_models).toEqual(
+      client.available_models.map(({ id, label }) => ({ id, label })),
+    );
+    expect(pi?.icon).toBe("cli-generic");
+  });
+
+  it("offers the pi auth blob plus Anthropic key for pi", () => {
+    const names = getAcpProviderSecrets("pi").map(({ name }) => name);
+    expect(names).toEqual(["PI_AUTH_JSON", "ANTHROPIC_API_KEY"]);
+  });
+
   it("carries GPT-6 Astra, so the pin is new enough to launch it", () => {
     // Canary for the pin's freshness, not a catalog Canvas maintains: Astra
     // needs codex-acp >= 1.10.0, which only client >= 1.45.0 mirrors.
@@ -90,11 +106,12 @@ describe("surfaced ACP providers", () => {
     (key) => !SURFACED_ACP_PROVIDERS.includes(key),
   );
 
-  it("surfaces only Claude Code, Codex and Gemini CLI", () => {
+  it("surfaces only Claude Code, Codex, Gemini CLI and Pi", () => {
     expect([...SURFACED_ACP_PROVIDERS]).toEqual([
       "claude-code",
       "codex",
       "gemini-cli",
+      "pi",
     ]);
   });
 

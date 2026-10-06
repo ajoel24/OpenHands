@@ -142,6 +142,10 @@ const ACP_PROVIDER_UI: Record<
     icon: "gemini",
     description_key: I18nKey.ONBOARDING$AGENT_GEMINI_CLI_DESCRIPTION,
   },
+  pi: {
+    icon: "cli-generic",
+    description_key: I18nKey.ONBOARDING$AGENT_PI_DESCRIPTION,
+  },
 };
 
 function getAvailableModels(key: string): ACPModelOption[] | undefined {
@@ -228,6 +232,15 @@ export interface ACPProviderSecretField {
  * field (same bump that unblocks ``acp_isolate_data_dir``, see #1019).
  */
 const ACP_RESERVED_CREDENTIALS: Record<string, ACPProviderSecretField[]> = {
+  pi: [
+    {
+      name: "PI_AUTH_JSON",
+      secret: true,
+      multiline: true,
+      hint_key: I18nKey.ONBOARDING$ACP_SECRET_FILE_BLOB_HINT,
+      hint_values: { file: "~/.pi/agent/auth.json" },
+    },
+  ],
   codex: [
     {
       name: "CODEX_AUTH_JSON",
