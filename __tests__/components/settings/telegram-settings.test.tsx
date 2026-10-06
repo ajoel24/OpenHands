@@ -133,6 +133,28 @@ describe("TelegramSettings", () => {
     expect(screen.getByTestId("telegram-chat-123")).toBeInTheDocument();
   });
 
+  it("shows disabled state when status query fails", () => {
+    vi.mocked(useTelegramStatus).mockReturnValue({
+      data: undefined,
+      isLoading: false,
+      isError: true,
+    } as never);
+    vi.mocked(useTelegramChats).mockReturnValue({
+      data: [],
+      isLoading: false,
+    } as never);
+
+    renderWithClient(<TelegramSettings />);
+
+    expect(screen.getByTestId("telegram-unavailable")).toBeInTheDocument();
+    expect(
+      screen.queryByTestId("telegram-bot-token-input"),
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByTestId("telegram-start-button"),
+    ).not.toBeInTheDocument();
+  });
+
   it("shows empty state when no chats", () => {
     vi.mocked(useTelegramStatus).mockReturnValue({
       data: { status: "running", active_chats: 0, total_messages: 0 },

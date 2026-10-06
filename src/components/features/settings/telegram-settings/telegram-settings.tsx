@@ -22,7 +22,11 @@ export function TelegramSettings() {
   const [botToken, setBotToken] = useState("");
   const [showToken, setShowToken] = useState(false);
 
-  const { data: status, isLoading: statusLoading } = useTelegramStatus();
+  const {
+    data: status,
+    isLoading: statusLoading,
+    isError: statusError,
+  } = useTelegramStatus();
   const { data: chats, isLoading: chatsLoading } = useTelegramChats(
     status?.status === "running",
   );
@@ -40,14 +44,44 @@ export function TelegramSettings() {
     stopBot();
   };
 
+  if (!statusLoading && statusError) {
+    return (
+      <div className="flex flex-col gap-6" data-testid="telegram-settings">
+        <section className="flex flex-col gap-4">
+          <div className="flex flex-col gap-1">
+            <Typography.Text className="text-sm font-medium text-contrast">
+              {t(I18nKey.TELEGRAM$TITLE)}
+            </Typography.Text>
+            <Typography.Text className="text-xs text-[#717888]">
+              {t(I18nKey.TELEGRAM$DESCRIPTION)}
+            </Typography.Text>
+          </div>
+          <div
+            data-testid="telegram-unavailable"
+            className={extensionModuleEmptyStateClassName}
+          >
+            <p className="text-sm text-muted">
+              {t(I18nKey.TELEGRAM$UNAVAILABLE)}
+            </p>
+            <p className="mt-1 text-xs text-muted opacity-80">
+              {t(I18nKey.TELEGRAM$UNAVAILABLE_HINT)}
+            </p>
+          </div>
+        </section>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col gap-6" data-testid="telegram-settings">
       <section className="flex flex-col gap-4">
         <div className="flex flex-col gap-1">
-          <Typography.H2>{t(I18nKey.TELEGRAM$TITLE)}</Typography.H2>
-          <p className="text-sm leading-5 text-tertiary-light">
+          <Typography.Text className="text-sm font-medium text-contrast">
+            {t(I18nKey.TELEGRAM$TITLE)}
+          </Typography.Text>
+          <Typography.Text className="text-xs text-[#717888]">
             {t(I18nKey.TELEGRAM$DESCRIPTION)}
-          </p>
+          </Typography.Text>
         </div>
 
         {statusLoading ? (

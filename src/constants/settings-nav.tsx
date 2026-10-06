@@ -80,8 +80,8 @@ export const OSS_NAV_ITEMS: SettingsNavItem[] = [
   {
     icon: <Send className="size-4" strokeWidth={2} aria-hidden />,
     to: "/settings/telegram",
-    text: "SETTINGS$NAV_TELEGRAM",
-    subtitle: "SETTINGS$PAGE_TELEGRAM_SUBLINE",
+    text: "SETTINGS$NAV_INTEGRATIONS",
+    subtitle: "SETTINGS$PAGE_INTEGRATIONS_SUBLINE",
   },
 ];
 
