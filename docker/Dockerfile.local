@@ -36,7 +36,7 @@ WORKDIR /build
 COPY package.json package-lock.json ./
 # Vendored local tarballs for file: dependencies (e.g. unreleased client)
 COPY local-packages/ ./local-packages/
-RUN npm ci
+RUN --mount=type=cache,target=/root/.npm npm ci
 
 # Copy everything needed for the build
 COPY . .
