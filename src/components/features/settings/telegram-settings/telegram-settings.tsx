@@ -5,10 +5,10 @@ import { useTelegramChats } from "#/hooks/query/use-telegram-chats";
 import { useTelegramStart } from "#/hooks/mutation/use-telegram-start";
 import { useTelegramStop } from "#/hooks/mutation/use-telegram-stop";
 import { BrandButton } from "#/components/features/settings/brand-button";
+import { SettingsInput } from "#/components/features/settings/settings-input";
 import { LoadingSpinner } from "#/components/shared/loading-spinner";
 import { Typography } from "#/ui/typography";
 import { I18nKey } from "#/i18n/declaration";
-import { cn } from "#/utils/utils";
 
 export function TelegramSettings() {
   const { t } = useTranslation("openhands");
@@ -35,29 +35,24 @@ export function TelegramSettings() {
 
   return (
     <div className="flex flex-col gap-6" data-testid="telegram-settings">
-      <div className="flex flex-col gap-2">
-        <Typography.H3>{t(I18nKey.TELEGRAM$TITLE)}</Typography.H3>
-        <Typography.Text className="text-secondary">
-          {t(I18nKey.TELEGRAM$DESCRIPTION)}
-        </Typography.Text>
-      </div>
+      <section className="flex flex-col gap-4 rounded-xl border border-border bg-surface-raised p-4">
+        <div className="flex flex-col gap-2">
+          <Typography.H3>{t(I18nKey.TELEGRAM$TITLE)}</Typography.H3>
+          <Typography.Paragraph className="text-tertiary-alt text-sm leading-5">
+            {t(I18nKey.TELEGRAM$DESCRIPTION)}
+          </Typography.Paragraph>
+        </div>
 
-      <div className="flex flex-col gap-4 rounded-xl border border-tertiary p-4">
-        <div className="flex items-center justify-between">
-          <Typography.Text className="font-semibold">
-            {t(I18nKey.TELEGRAM$STATUS)}
-          </Typography.Text>
+        <div className="flex items-center justify-between gap-2">
+          <Typography.Text>{t(I18nKey.TELEGRAM$STATUS)}</Typography.Text>
           {statusLoading ? (
             <LoadingSpinner size="small" />
           ) : (
             <span
               data-testid="telegram-status-badge"
-              className={cn(
-                "rounded-full px-3 py-1 text-xs font-medium",
-                isRunning
-                  ? "bg-success/15 text-success"
-                  : "bg-tertiary text-secondary",
-              )}
+              className={
+                isRunning ? "text-success text-sm" : "text-warning text-sm"
+              }
             >
               {isRunning
                 ? t(I18nKey.TELEGRAM$RUNNING)
@@ -67,47 +62,34 @@ export function TelegramSettings() {
         </div>
 
         {!isRunning && (
-          <div className="flex flex-col gap-2">
-            <label
-              htmlFor="telegram-bot-token"
-              className="text-sm font-medium text-primary"
+          <div className="flex items-end gap-2">
+            <SettingsInput
+              testId="telegram-bot-token-input"
+              label={t(I18nKey.TELEGRAM$BOT_TOKEN_LABEL)}
+              type={showToken ? "text" : "password"}
+              value={botToken}
+              onChange={setBotToken}
+              placeholder={t(I18nKey.TELEGRAM$BOT_TOKEN_PLACEHOLDER)}
+              hint={t(I18nKey.TELEGRAM$BOT_TOKEN_HELP)}
+            />
+            <BrandButton
+              type="button"
+              variant="tertiary"
+              onClick={() => setShowToken((v) => !v)}
             >
-              {t(I18nKey.TELEGRAM$BOT_TOKEN_LABEL)}
-            </label>
-            <div className="flex gap-2">
-              <input
-                id="telegram-bot-token"
-                data-testid="telegram-bot-token-input"
-                type={showToken ? "text" : "password"}
-                value={botToken}
-                onChange={(e) => setBotToken(e.target.value)}
-                placeholder={t(I18nKey.TELEGRAM$BOT_TOKEN_PLACEHOLDER)}
-                className="flex-1 rounded-lg border border-tertiary bg-primary px-3 py-2 text-sm text-primary placeholder:text-tertiary"
-              />
-              <button
-                type="button"
-                onClick={() => setShowToken((v) => !v)}
-                className="rounded-lg border border-tertiary px-3 py-2 text-sm text-secondary hover:text-primary"
-              >
-                {showToken
-                  ? t(I18nKey.TELEGRAM$HIDE)
-                  : t(I18nKey.TELEGRAM$SHOW)}
-              </button>
-            </div>
-            <p className="text-xs text-secondary">
-              {t(I18nKey.TELEGRAM$BOT_TOKEN_HELP)}
-            </p>
+              {showToken ? t(I18nKey.TELEGRAM$HIDE) : t(I18nKey.TELEGRAM$SHOW)}
+            </BrandButton>
           </div>
         )}
 
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           {!isRunning ? (
             <BrandButton
               testId="telegram-start-button"
-              onClick={handleStart}
-              isDisabled={isStarting}
-              variant="primary"
               type="button"
+              variant="primary"
+              isDisabled={isStarting}
+              onClick={handleStart}
             >
               {isStarting
                 ? t(I18nKey.TELEGRAM$STARTING)
@@ -116,10 +98,10 @@ export function TelegramSettings() {
           ) : (
             <BrandButton
               testId="telegram-stop-button"
-              onClick={handleStop}
-              isDisabled={isStopping}
-              variant="secondary"
               type="button"
+              variant="tertiary"
+              isDisabled={isStopping}
+              onClick={handleStop}
             >
               {isStopping
                 ? t(I18nKey.TELEGRAM$STOPPING)
@@ -131,7 +113,7 @@ export function TelegramSettings() {
         {isRunning && status && (
           <div
             data-testid="telegram-stats"
-            className="flex gap-4 text-sm text-secondary"
+            className="flex gap-4 text-sm text-tertiary-light"
           >
             <span>
               {t(I18nKey.TELEGRAM$ACTIVE_CHATS)}: {status.active_chats}
@@ -141,22 +123,20 @@ export function TelegramSettings() {
             </span>
           </div>
         )}
-      </div>
+      </section>
 
       {isRunning && (
-        <div className="flex flex-col gap-2">
-          <Typography.Text className="font-semibold">
-            {t(I18nKey.TELEGRAM$CHATS_TITLE)}
-          </Typography.Text>
+        <section className="flex flex-col gap-4 rounded-xl border border-border bg-surface-raised p-4">
+          <Typography.H3>{t(I18nKey.TELEGRAM$CHATS_TITLE)}</Typography.H3>
           {chatsLoading ? (
             <LoadingSpinner size="small" />
           ) : !chats || chats.length === 0 ? (
-            <p
-              data-testid="telegram-no-chats"
-              className="text-sm text-secondary"
+            <Typography.Paragraph
+              testId="telegram-no-chats"
+              className="text-tertiary-alt text-sm leading-5"
             >
               {t(I18nKey.TELEGRAM$NO_CHATS)}
-            </p>
+            </Typography.Paragraph>
           ) : (
             <div
               data-testid="telegram-chats-list"
@@ -166,15 +146,15 @@ export function TelegramSettings() {
                 <div
                   key={chat.chat_id}
                   data-testid={`telegram-chat-${chat.chat_id}`}
-                  className="flex items-center justify-between rounded-lg border border-tertiary px-3 py-2"
+                  className="flex items-center justify-between rounded-lg border border-border px-3 py-2"
                 >
                   <div className="flex flex-col">
-                    <span className="text-sm font-medium text-primary">
+                    <Typography.Text>
                       {chat.chat_title ||
                         chat.chat_username ||
                         `Chat ${chat.chat_id}`}
-                    </span>
-                    <span className="text-xs text-secondary">
+                    </Typography.Text>
+                    <span className="text-xs text-tertiary-light">
                       {t(I18nKey.TELEGRAM$MESSAGES)}: {chat.message_count} •{" "}
                       {chat.status}
                     </span>
@@ -183,7 +163,7 @@ export function TelegramSettings() {
               ))}
             </div>
           )}
-        </div>
+        </section>
       )}
     </div>
   );
