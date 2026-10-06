@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Check } from "lucide-react";
+import { HttpError } from "@openhands/typescript-client";
 import { useTelegramStatus } from "#/hooks/query/use-telegram-status";
 import { useTelegramChats } from "#/hooks/query/use-telegram-chats";
 import { useTelegramStart } from "#/hooks/mutation/use-telegram-start";
@@ -26,7 +27,16 @@ export function TelegramSettings() {
     data: status,
     isLoading: statusLoading,
     isError: statusError,
+    error: statusQueryError,
   } = useTelegramStatus();
+
+  // Only a 404 means the server predates the Telegram integration.
+  // Any other error (e.g. 503 "not configured") just means no token
+  // has been provided yet, so the normal stopped form still applies.
+  const isUnsupported =
+    statusError &&
+    statusQueryError instanceof HttpError &&
+    statusQueryError.status === 404;
   const { data: chats, isLoading: chatsLoading } = useTelegramChats(
     status?.status === "running",
   );
@@ -44,7 +54,7 @@ export function TelegramSettings() {
     stopBot();
   };
 
-  if (!statusLoading && statusError) {
+  if (!statusLoading && isUnsupported) {
     return (
       <div className="flex flex-col gap-6" data-testid="telegram-settings">
         <section className="flex flex-col gap-4">

@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { describe, expect, it, vi, beforeEach } from "vitest";
+import { HttpError } from "@openhands/typescript-client";
 import { TelegramSettings } from "#/components/features/settings/telegram-settings/telegram-settings";
 
 vi.mock("#/hooks/query/use-telegram-status", () => ({
@@ -133,11 +134,12 @@ describe("TelegramSettings", () => {
     expect(screen.getByTestId("telegram-chat-123")).toBeInTheDocument();
   });
 
-  it("shows disabled state when status query fails", () => {
+  it("shows disabled state when server has no telegram routes (404)", () => {
     vi.mocked(useTelegramStatus).mockReturnValue({
       data: undefined,
       isLoading: false,
       isError: true,
+      error: new HttpError(404, "Not Found"),
     } as never);
     vi.mocked(useTelegramChats).mockReturnValue({
       data: [],
@@ -153,6 +155,27 @@ describe("TelegramSettings", () => {
     expect(
       screen.queryByTestId("telegram-start-button"),
     ).not.toBeInTheDocument();
+  });
+
+  it("shows token form when bot is unconfigured (503), not disabled", () => {
+    vi.mocked(useTelegramStatus).mockReturnValue({
+      data: undefined,
+      isLoading: false,
+      isError: true,
+      error: new HttpError(503, "Service Unavailable"),
+    } as never);
+    vi.mocked(useTelegramChats).mockReturnValue({
+      data: [],
+      isLoading: false,
+    } as never);
+
+    renderWithClient(<TelegramSettings />);
+
+    expect(
+      screen.queryByTestId("telegram-unavailable"),
+    ).not.toBeInTheDocument();
+    expect(screen.getByTestId("telegram-bot-token-input")).toBeInTheDocument();
+    expect(screen.getByTestId("telegram-start-button")).toBeInTheDocument();
   });
 
   it("shows empty state when no chats", () => {
