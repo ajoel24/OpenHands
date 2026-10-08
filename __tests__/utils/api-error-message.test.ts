@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { AxiosError } from "axios";
-import { HttpError } from "@openhands/typescript-client";
+import { HttpError } from "@ajoel24/openhands-typescript-client";
 import {
   getApiErrorMessage,
   getApiOrConnectionErrorMessage,

@@ -5,7 +5,7 @@
  *
  * Verifies two things against versions.agentServer in config/defaults.json:
  *
- * 1. The local @openhands/typescript-client pin in package.json. Canvas renders
+ * 1. The local @ajoel24/openhands-typescript-client pin in package.json. Canvas renders
  *    the ACP provider picker from that generated registry mirror but launches
  *    the adapter through the agent-server image, so a skew ships a picker
  *    offering models and launch commands agent-server does not implement.
@@ -111,7 +111,7 @@ const SDK_PACKAGES = [
 // Mirrors the SDK's ACP provider registry. Must track versions.agentServer:
 // the picker is rendered from this pin but the adapter is launched by that
 // image, so a skew advertises models the running agent-server cannot run.
-const CLIENT_PACKAGE_NAME = "@openhands/typescript-client";
+const CLIENT_PACKAGE_NAME = "@ajoel24/openhands-typescript-client";
 
 // Configurable automation package (can be overridden via env)
 const AUTOMATION_PACKAGE_NAME = process.env.AUTOMATION_PACKAGE_NAME || "openhands-automation";

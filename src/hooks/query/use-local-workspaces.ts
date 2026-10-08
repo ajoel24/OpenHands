@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { isAgentServerVersionError } from "@openhands/typescript-client/clients";
+import { isAgentServerVersionError } from "@ajoel24/openhands-typescript-client/clients";
 
 import WorkspacesService, {
   WorkspacesListResponse,

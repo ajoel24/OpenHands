@@ -1,9 +1,9 @@
-import { ACP_SETTINGS_KEYS } from "@openhands/typescript-client";
+import { ACP_SETTINGS_KEYS } from "@ajoel24/openhands-typescript-client";
 import type {
   ConversationRuntimeInfo,
   HookConfig,
-} from "@openhands/typescript-client";
-import { ServerClient } from "@openhands/typescript-client/clients";
+} from "@ajoel24/openhands-typescript-client";
+import { ServerClient } from "@ajoel24/openhands-typescript-client/clients";
 import { SKILLS_CATALOG } from "@openhands/extensions/skills";
 import { DEFAULT_SETTINGS } from "#/services/settings";
 import { ExecutionStatus } from "#/types/agent-server/core";
@@ -978,7 +978,7 @@ function buildConfiguredAcpAgentSettings(
   // TODO(#1019): set ``acp_isolate_data_dir: true`` here for a containerized
   // backend so concurrent same-provider conversations don't race on a shared
   // HOME. The SDK supports it (software-agent-sdk#3492), but the released
-  // ``@openhands/typescript-client`` (1.24.3) doesn't surface it on
+  // ``@ajoel24/openhands-typescript-client`` (1.24.3) doesn't surface it on
   // ``ACPAgentSettings`` yet, so sending it risks a validation error on older
   // servers. Cloud grouping isolation is separate (agent-canvas#1016).
 

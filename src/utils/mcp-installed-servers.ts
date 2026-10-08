@@ -1,4 +1,4 @@
-import type { MCPConfig } from "@openhands/typescript-client";
+import type { MCPConfig } from "@ajoel24/openhands-typescript-client";
 import type { MCPServerConfig } from "#/types/mcp-server";
 import { getMcpServerEnabled } from "./mcp-config";
 

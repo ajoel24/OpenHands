@@ -2,12 +2,12 @@ import {
   ConversationSortOrder,
   type ForkConversationRequest,
   type LLMConfig,
-} from "@openhands/typescript-client";
+} from "@ajoel24/openhands-typescript-client";
 import {
   ConversationClient,
   FileClient,
   ProfilesClient,
-} from "@openhands/typescript-client/clients";
+} from "@ajoel24/openhands-typescript-client/clients";
 import { v4 as uuidv4 } from "uuid";
 import { AgentKind, Provider } from "#/types/settings";
 import type { ConversationRuntimeContext } from "#/api/conversation-file-upload.api";

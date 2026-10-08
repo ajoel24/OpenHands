@@ -1,5 +1,5 @@
-import { MCPClient } from "@openhands/typescript-client/clients";
-import type { AgentServerMCPTestRequest } from "@openhands/typescript-client";
+import { MCPClient } from "@ajoel24/openhands-typescript-client/clients";
+import type { AgentServerMCPTestRequest } from "@ajoel24/openhands-typescript-client";
 import { getAgentServerClientOptions } from "../agent-server-client-options";
 import {
   getActiveBackend,

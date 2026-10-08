@@ -1,7 +1,7 @@
 import {
   FileClient,
   PluginsClient,
-} from "@openhands/typescript-client/clients";
+} from "@ajoel24/openhands-typescript-client/clients";
 import { getActiveBackend } from "./backend-registry/active-store";
 import { getAgentServerClientOptions } from "./agent-server-client-options";
 

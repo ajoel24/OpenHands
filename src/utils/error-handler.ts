@@ -1,5 +1,5 @@
 import { trackEvent } from "#/services/telemetry";
-import type { ErrorClassification } from "@openhands/typescript-client";
+import type { ErrorClassification } from "@ajoel24/openhands-typescript-client";
 
 interface ErrorDetails {
   source?: string;

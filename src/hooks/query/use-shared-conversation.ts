@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { SharedClient } from "@openhands/typescript-client/clients";
+import { SharedClient } from "@ajoel24/openhands-typescript-client/clients";
 import { getAgentServerClientOptions } from "#/api/agent-server-client-options";
 import { getActiveBackend } from "#/api/backend-registry/active-store";
 import { getCloudSharedConversation } from "#/api/cloud/shared-conversation-service.api";

@@ -1,4 +1,4 @@
-import { RemoteWorkspace } from "@openhands/typescript-client/workspace/remote-workspace";
+import { RemoteWorkspace } from "@ajoel24/openhands-typescript-client/workspace/remote-workspace";
 import { RepositoryPage, BranchPage, InstallationPage } from "#/types/git";
 import { Provider } from "#/types/settings";
 import { GitChange, GitChangeDiff } from "../open-hands.types";

@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { HttpError } from "@openhands/typescript-client";
+import { HttpError } from "@ajoel24/openhands-typescript-client";
 import { BrandButton } from "#/components/features/settings/brand-button";
 import { ApiKeyModalBase } from "#/components/features/settings/api-key-modal-base";
 import { LoadingSpinner } from "#/components/shared/loading-spinner";

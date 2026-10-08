@@ -1,4 +1,4 @@
-import { AgentServerClient } from "@openhands/typescript-client/clients";
+import { AgentServerClient } from "@ajoel24/openhands-typescript-client/clients";
 import { getAgentServerClientOptions } from "./agent-server-client-options";
 import {
   LLM_BALANCE_PATH,

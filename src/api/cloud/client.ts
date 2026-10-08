@@ -1,4 +1,4 @@
-import { CloudClient } from "@openhands/typescript-client/clients";
+import { CloudClient } from "@ajoel24/openhands-typescript-client/clients";
 import {
   getAgentServerBaseUrl,
   getAgentServerHeaders,

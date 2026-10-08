@@ -1,9 +1,9 @@
-import { BashClient } from "@openhands/typescript-client/clients";
+import { BashClient } from "@ajoel24/openhands-typescript-client/clients";
 import type {
   BashEvent,
   BashEventPage,
   BashOutput,
-} from "@openhands/typescript-client";
+} from "@ajoel24/openhands-typescript-client";
 import { getActiveBackend } from "../backend-registry/active-store";
 import { getAgentServerClientOptions } from "../agent-server-client-options";
 

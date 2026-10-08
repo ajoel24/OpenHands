@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import type {
   MCPConfig,
   MCPServer,
-} from "@openhands/typescript-client";
+} from "@ajoel24/openhands-typescript-client";
 
 import {
   allocateMcpSettingsKey,

@@ -4,7 +4,7 @@ import type {
   ProfileListResponse,
   ProfileMutationResponse,
   SaveProfileRequest,
-} from "@openhands/typescript-client";
+} from "@ajoel24/openhands-typescript-client";
 import { getActiveBackend } from "../backend-registry/active-store";
 import type { Backend } from "../backend-registry/types";
 import { callCloudProxy } from "./proxy";

@@ -1,4 +1,4 @@
-import { HttpError } from "@openhands/typescript-client";
+import { HttpError } from "@ajoel24/openhands-typescript-client";
 import { getActiveBackend } from "../backend-registry/active-store";
 import type { Backend } from "../backend-registry/types";
 import { callCloudProxy } from "./proxy";

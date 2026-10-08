@@ -3,7 +3,7 @@ import type {
   AgentProfile,
   AgentProfileSaveInput,
   AgentProfileSummary,
-} from "@openhands/typescript-client";
+} from "@ajoel24/openhands-typescript-client";
 import type { ToolCatalogEntry } from "#/api/tool-catalog-service/tool-catalog-service.api";
 
 /**

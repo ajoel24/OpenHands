@@ -34,8 +34,6 @@ WORKDIR /build
 
 # Cache-friendly: package files first
 COPY package.json package-lock.json ./
-# Vendored local tarballs for file: dependencies (e.g. unreleased client)
-COPY local-packages/ ./local-packages/
 RUN --mount=type=cache,target=/root/.npm npm ci
 
 # Bundle inputs only: ops edits under scripts/, tools/, docker/, config/

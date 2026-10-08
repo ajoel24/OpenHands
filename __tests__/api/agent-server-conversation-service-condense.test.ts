@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { ConversationClient } from "@openhands/typescript-client/clients";
+import { ConversationClient } from "@ajoel24/openhands-typescript-client/clients";
 import {
   __resetActiveStoreForTests,
   setActiveSelection,
@@ -14,10 +14,10 @@ const { mockCondenseConversation } = vi.hoisted(() => ({
   mockCondenseConversation: vi.fn(),
 }));
 
-vi.mock("@openhands/typescript-client/clients", async () => {
+vi.mock("@ajoel24/openhands-typescript-client/clients", async () => {
   const actual = await vi.importActual<
-    typeof import("@openhands/typescript-client/clients")
-  >("@openhands/typescript-client/clients");
+    typeof import("@ajoel24/openhands-typescript-client/clients")
+  >("@ajoel24/openhands-typescript-client/clients");
   return {
     ...actual,
     ConversationClient: vi.fn(function ConversationClientMock() {

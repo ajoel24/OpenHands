@@ -24,7 +24,7 @@ const {
   respondToConfirmationMock: vi.fn(),
 }));
 
-vi.mock("@openhands/typescript-client/clients", () => ({
+vi.mock("@ajoel24/openhands-typescript-client/clients", () => ({
   ConversationClient: class {
     constructor(options: unknown) {
       conversationClientConstructorMock(options);
@@ -34,15 +34,18 @@ vi.mock("@openhands/typescript-client/clients", () => ({
     getEventCount = getEventCountMock;
   },
 }));
-vi.mock("@openhands/typescript-client/events/remote-events-list", () => ({
-  RemoteEventsList: class {
-    constructor(options: unknown, conversationId: string) {
-      remoteEventsListConstructorMock(options, conversationId);
-    }
+vi.mock(
+  "@ajoel24/openhands-typescript-client/events/remote-events-list",
+  () => ({
+    RemoteEventsList: class {
+      constructor(options: unknown, conversationId: string) {
+        remoteEventsListConstructorMock(options, conversationId);
+      }
 
-    search = remoteSearchMock;
-  },
-}));
+      search = remoteSearchMock;
+    },
+  }),
+);
 vi.mock("#/utils/websocket-url", () => ({
   buildHttpBaseUrl: buildHttpBaseUrlMock,
 }));

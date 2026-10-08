@@ -8,7 +8,7 @@ import React, {
   useMemo,
   useRef,
 } from "react";
-import { ConversationClient } from "@openhands/typescript-client/clients";
+import { ConversationClient } from "@ajoel24/openhands-typescript-client/clients";
 
 import { useQueryClient } from "@tanstack/react-query";
 import { useWebSocket, WebSocketHookOptions } from "#/hooks/use-websocket";

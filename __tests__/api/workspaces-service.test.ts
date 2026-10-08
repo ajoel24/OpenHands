@@ -22,7 +22,7 @@ const {
   mockDeleteWorkspaceParent: vi.fn(),
 }));
 
-vi.mock("@openhands/typescript-client/clients", () => ({
+vi.mock("@ajoel24/openhands-typescript-client/clients", () => ({
   WorkspacesClient: vi.fn(function WorkspacesClientMock() {
     return {
       listWorkspaces: mockListWorkspaces,

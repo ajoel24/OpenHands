@@ -1,7 +1,7 @@
 import { EventID, ToolCallID } from "../base/common";
 import { BaseEvent } from "../base/event";
 import { Observation } from "../base/observation";
-import type { AgentErrorEvent } from "@openhands/typescript-client";
+import type { AgentErrorEvent } from "@ajoel24/openhands-typescript-client";
 
 export type { AgentErrorEvent };
 

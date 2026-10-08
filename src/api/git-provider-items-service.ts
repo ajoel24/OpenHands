@@ -1,4 +1,4 @@
-import { SettingsClient } from "@openhands/typescript-client/clients";
+import { SettingsClient } from "@ajoel24/openhands-typescript-client/clients";
 import { getAgentServerClientOptions } from "#/api/agent-server-client-options";
 import { SecretsService } from "#/api/secrets-service";
 import { getActiveBackend } from "#/api/backend-registry/active-store";

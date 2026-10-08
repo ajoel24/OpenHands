@@ -8,7 +8,7 @@
  *
  * For full integration testing, use browser-level tests with MSW.
  */
-import { ProfilesClient } from "@openhands/typescript-client/clients";
+import { ProfilesClient } from "@ajoel24/openhands-typescript-client/clients";
 import { afterEach, describe, expect, it, vi, beforeEach } from "vitest";
 import ProfilesService from "#/api/profiles-service/profiles-service.api";
 
@@ -33,7 +33,7 @@ const {
   mockClose: vi.fn(),
 }));
 
-vi.mock("@openhands/typescript-client/clients", () => ({
+vi.mock("@ajoel24/openhands-typescript-client/clients", () => ({
   ProfilesClient: vi.fn(function ProfilesClientMock() {
     return {
       listProfiles: mockListProfiles,

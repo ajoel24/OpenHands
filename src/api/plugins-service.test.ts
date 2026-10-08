@@ -2,14 +2,14 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import {
   FileClient,
   PluginsClient,
-} from "@openhands/typescript-client/clients";
+} from "@ajoel24/openhands-typescript-client/clients";
 import {
   setActiveSelection,
   setRegisteredBackends,
 } from "./backend-registry/active-store";
 import PluginsService from "./plugins-service";
 
-vi.mock("@openhands/typescript-client/clients", () => ({
+vi.mock("@ajoel24/openhands-typescript-client/clients", () => ({
   PluginsClient: vi.fn(),
   FileClient: vi.fn(),
 }));

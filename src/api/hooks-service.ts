@@ -1,5 +1,5 @@
-import { HooksClient } from "@openhands/typescript-client/clients";
-import type { HookConfig } from "@openhands/typescript-client";
+import { HooksClient } from "@ajoel24/openhands-typescript-client/clients";
+import type { HookConfig } from "@ajoel24/openhands-typescript-client";
 import { getAgentServerWorkingDir } from "./agent-server-config";
 import { getEffectiveLocalBackend } from "./backend-registry/active-store";
 import { getAgentServerClientOptions } from "./agent-server-client-options";
