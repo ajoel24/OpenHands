@@ -39,7 +39,7 @@ describe("ACP_PROVIDERS", () => {
 
   it("carries GPT-6 Astra, so the pin is new enough to launch it", () => {
     // Canary for the pin's freshness, not a catalog Canvas maintains: Astra
-    // needs codex-acp >= 1.10.0, which only client >= 1.45.0 mirrors.
+    // needs codex-acp >= 1.10.0, which only client >= 1.45.0 carries.
     const codex = ACP_PROVIDERS.find(({ key }) => key === "codex");
     expect(codex?.available_models?.map(({ id }) => id)).toContain(
       "gpt-6-astra",
