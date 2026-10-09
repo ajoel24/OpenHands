@@ -195,8 +195,6 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           context: .
-          # Fork override: set the CANVAS_DOCKERFILE repo variable (e.g.
-          # docker/Dockerfile.local) to build a different Dockerfile.
           file: ${{ vars.CANVAS_DOCKERFILE || 'docker/Dockerfile' }}
           platforms: ${{ matrix.platform }}
           push: true
