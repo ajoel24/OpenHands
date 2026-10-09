@@ -1,4 +1,4 @@
-import type { CloudRequestOptions } from "@openhands/typescript-client/clients";
+import type { CloudRequestOptions } from "@ajoel24/openhands-typescript-client/clients";
 import type { Backend } from "../backend-registry/types";
 import { createCloudClientForRuntime, createCloudClient } from "./client";
 

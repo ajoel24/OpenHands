@@ -11,7 +11,7 @@
 import {
   WorkspacesClient,
   type WorkspacesListResponse as SdkWorkspacesListResponse,
-} from "@openhands/typescript-client/clients";
+} from "@ajoel24/openhands-typescript-client/clients";
 
 import { LocalWorkspace, LocalWorkspaceParent } from "#/types/workspace";
 

@@ -5,7 +5,7 @@ import type {
   AgentServerMCPToolCall,
   AgentServerMCPToolCallResult,
   MCPTestFailureKind,
-} from "@openhands/typescript-client";
+} from "@ajoel24/openhands-typescript-client";
 import type { MCPAuthCredential, MCPOAuthState } from "./mcp-auth";
 
 export type MCPServerType = "sse" | "stdio" | "shttp";

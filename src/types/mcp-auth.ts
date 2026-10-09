@@ -1,13 +1,13 @@
 import type {
   MCPAuthCredential,
   MCPOAuthAuthentication,
-} from "@openhands/typescript-client";
+} from "@ajoel24/openhands-typescript-client";
 
 export type {
   MCPAuthCredential,
   MCPOAuthAuthentication,
   MCPOAuthState,
-} from "@openhands/typescript-client";
+} from "@ajoel24/openhands-typescript-client";
 
 export type MCPAuthenticationConfig = MCPOAuthAuthentication;
 export type MCPOAuthAuthenticationConfig = MCPOAuthAuthentication;

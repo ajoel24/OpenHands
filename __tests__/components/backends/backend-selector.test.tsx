@@ -30,7 +30,7 @@ import {
 import {
   ServerClient,
   SettingsClient,
-} from "@openhands/typescript-client/clients";
+} from "@ajoel24/openhands-typescript-client/clients";
 import {
   getCloudOrganizations,
   getCloudOrganizationMe,
@@ -43,7 +43,7 @@ vi.mock("#/api/cloud/organization-service.api", () => ({
   getCurrentCloudApiKey: vi.fn(),
 }));
 
-vi.mock("@openhands/typescript-client/clients", () => ({
+vi.mock("@ajoel24/openhands-typescript-client/clients", () => ({
   ServerClient: vi.fn(),
   SettingsClient: vi.fn(),
 }));

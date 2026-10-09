@@ -1,6 +1,6 @@
 import { BaseEvent } from "../base/event";
 import { ExecutionStatus } from "../base/common";
-import type { ConversationErrorEvent } from "@openhands/typescript-client";
+import type { ConversationErrorEvent } from "@ajoel24/openhands-typescript-client";
 
 export type { ConversationErrorEvent };
 

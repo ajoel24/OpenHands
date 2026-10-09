@@ -1,10 +1,10 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import type { BashOutput } from "@openhands/typescript-client";
+import type { BashOutput } from "@ajoel24/openhands-typescript-client";
 import AcpService from "#/api/acp-service/acp-service.api";
 
 // Capture the command the service runs and control the BashOutput it sees.
 const executeCommand = vi.hoisted(() => vi.fn());
-vi.mock("@openhands/typescript-client/clients", () => ({
+vi.mock("@ajoel24/openhands-typescript-client/clients", () => ({
   BashClient: class {
     executeCommand = executeCommand;
   },

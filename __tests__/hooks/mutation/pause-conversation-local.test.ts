@@ -14,7 +14,7 @@ const { interruptConversationMock } = vi.hoisted(() => ({
   interruptConversationMock: vi.fn(),
 }));
 
-vi.mock("@openhands/typescript-client/clients", () => ({
+vi.mock("@ajoel24/openhands-typescript-client/clients", () => ({
   ConversationClient: vi.fn(function ConversationClientMock() {
     return { interruptConversation: interruptConversationMock };
   }),

@@ -14,7 +14,7 @@ import {
 
 const mockGetHome = vi.fn();
 
-vi.mock("@openhands/typescript-client/clients", () => ({
+vi.mock("@ajoel24/openhands-typescript-client/clients", () => ({
   FileClient: vi.fn(function FileClientMock() {
     return { getHome: mockGetHome };
   }),

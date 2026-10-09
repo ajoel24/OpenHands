@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import type { VSCodeStatusResponse } from "@openhands/typescript-client";
+import type { VSCodeStatusResponse } from "@ajoel24/openhands-typescript-client";
 import { useTranslation } from "react-i18next";
 import { useConversationId } from "#/hooks/use-conversation-id";
 import { I18nKey } from "#/i18n/declaration";

@@ -45031,5 +45031,22 @@
     "de": "Diese Adresse passt zu keiner Seite. Prüfe die URL oder kehre zur Startseite zurück.",
     "uk": "Ця адреса не відповідає жодній сторінці. Перевірте URL або поверніться на головну сторінку.",
     "ca": "Aquesta adreça no correspon a cap pàgina. Comprova l'URL o torna a la pàgina d'inici."
+  },
+  "ONBOARDING$AGENT_PI_DESCRIPTION": {
+    "en": "Earendil Works pi coding agent.",
+    "ja": "Earendil Works pi coding agent.",
+    "zh-CN": "Earendil Works pi coding agent.",
+    "zh-TW": "Earendil Works pi coding agent.",
+    "ko-KR": "Earendil Works pi coding agent.",
+    "no": "Earendil Works pi coding agent.",
+    "it": "Earendil Works pi coding agent.",
+    "pt": "Earendil Works pi coding agent.",
+    "es": "Earendil Works pi coding agent.",
+    "ar": "Earendil Works pi coding agent.",
+    "fr": "Earendil Works pi coding agent.",
+    "tr": "Earendil Works pi coding agent.",
+    "de": "Earendil Works pi coding agent.",
+    "uk": "Earendil Works pi coding agent.",
+    "ca": "Earendil Works pi coding agent."
   }
 }

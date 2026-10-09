@@ -1,7 +1,7 @@
 import i18n from "#/i18n";
 import { I18nKey } from "#/i18n/declaration";
-import { ServerClient } from "@openhands/typescript-client/clients";
-import type { ServerInfo } from "@openhands/typescript-client";
+import { ServerClient } from "@ajoel24/openhands-typescript-client/clients";
+import type { ServerInfo } from "@ajoel24/openhands-typescript-client";
 import {
   getAgentServerClientOptions,
   type AgentServerClientOverrides,

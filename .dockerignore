@@ -36,4 +36,5 @@ Thumbs.db
 # Misc
 artifacts/
 *.tgz
+!local-packages/*.tgz
 *.log

@@ -1,6 +1,6 @@
 import { QueryClient } from "@tanstack/react-query";
-import { ConversationClient } from "@openhands/typescript-client/clients";
-import type { StartGoalRequest } from "@openhands/typescript-client";
+import { ConversationClient } from "@ajoel24/openhands-typescript-client/clients";
+import type { StartGoalRequest } from "@ajoel24/openhands-typescript-client";
 import { getActiveBackend } from "#/api/backend-registry/active-store";
 import { pauseCloudSandbox } from "#/api/cloud/conversation-service.api";
 import { getAgentServerClientOptions } from "#/api/agent-server-client-options";

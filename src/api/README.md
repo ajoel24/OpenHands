@@ -2,7 +2,7 @@
 
 ## Overview
 
-Services are the abstraction layer between frontend components and backend APIs. Local agent-server API access should use `@openhands/typescript-client` classes directly, with shared connection options from `src/api/agent-server-client-options.ts` for the active local backend host, session API key, and workspace defaults.
+Services are the abstraction layer between frontend components and backend APIs. Local agent-server API access should use `@ajoel24/openhands-typescript-client` classes directly, with shared connection options from `src/api/agent-server-client-options.ts` for the active local backend host, session API key, and workspace defaults.
 
 Cloud-specific APIs should use the cloud service modules/proxy helpers instead of local agent-server clients.
 
@@ -21,11 +21,11 @@ src/api/
 
 ## Creating a Service
 
-Use an object literal with named export. Use object destructuring for parameters to make calls self-documenting. Prefer typed `@openhands/typescript-client` classes over generic HTTP calls. If a needed endpoint is missing, add it to `@openhands/typescript-client` first.
+Use an object literal with named export. Use object destructuring for parameters to make calls self-documenting. Prefer typed `@ajoel24/openhands-typescript-client` classes over generic HTTP calls. If a needed endpoint is missing, add it to `@ajoel24/openhands-typescript-client` first.
 
 ```typescript
 // feature-service/feature-service.api.ts
-import { FeatureClient } from "@openhands/typescript-client/clients";
+import { FeatureClient } from "@ajoel24/openhands-typescript-client/clients";
 import { getAgentServerClientOptions } from "../agent-server-client-options";
 import { Feature, CreateFeatureParams } from "./feature.types";
 

@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import type { StartGoalRequest } from "@openhands/typescript-client";
+import type { StartGoalRequest } from "@ajoel24/openhands-typescript-client";
 import { startGoal } from "#/hooks/mutation/conversation-mutation-utils";
 import { displayErrorToast } from "#/utils/custom-toast-handlers";
 import { I18nKey } from "#/i18n/declaration";

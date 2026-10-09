@@ -9,11 +9,11 @@ import {
   LLM_BALANCE_TIMEOUT_MS,
 } from "#/constants/llm-balance";
 import LLMBalanceService from "./llm-balance-service";
-import { AgentServerClient } from "@openhands/typescript-client/clients";
+import { AgentServerClient } from "@ajoel24/openhands-typescript-client/clients";
 
 const getMock = vi.hoisted(() => vi.fn());
 
-vi.mock("@openhands/typescript-client/clients", () => ({
+vi.mock("@ajoel24/openhands-typescript-client/clients", () => ({
   AgentServerClient: vi.fn(function AgentServerClientMock() {
     return { get: getMock, close: vi.fn() };
   }),

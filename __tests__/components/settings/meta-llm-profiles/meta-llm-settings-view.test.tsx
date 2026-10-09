@@ -1,7 +1,7 @@
 import { describe, expect, it, vi, beforeEach, type Mock } from "vitest";
 import { fireEvent, screen, waitFor, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { HttpError } from "@openhands/typescript-client";
+import { HttpError } from "@ajoel24/openhands-typescript-client";
 import { renderWithProviders } from "test-utils";
 import { MetaLlmSettingsView } from "#/components/features/settings/meta-llm-profiles";
 import * as useMetaProfilesHook from "#/hooks/query/use-meta-profiles";

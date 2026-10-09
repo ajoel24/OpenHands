@@ -1,4 +1,4 @@
-import { BashClient } from "@openhands/typescript-client/clients";
+import { BashClient } from "@ajoel24/openhands-typescript-client/clients";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import {
   __resetActiveStoreForTests,
@@ -14,7 +14,7 @@ const { searchEventsMock } = vi.hoisted(() => ({
   searchEventsMock: vi.fn(),
 }));
 
-vi.mock("@openhands/typescript-client/clients", () => ({
+vi.mock("@ajoel24/openhands-typescript-client/clients", () => ({
   BashClient: vi.fn(function BashClientMock() {
     return { searchEvents: searchEventsMock };
   }),
@@ -128,8 +128,8 @@ describe("BashService.listOutputs — local backend", () => {
     // request the browser actually sends. The automation's command runs at
     // server level, so a conversation-scoped search would come back empty.
     const actualClients = await vi.importActual<
-      typeof import("@openhands/typescript-client/clients")
-    >("@openhands/typescript-client/clients");
+      typeof import("@ajoel24/openhands-typescript-client/clients")
+    >("@ajoel24/openhands-typescript-client/clients");
     const actualOptions = await vi.importActual<
       typeof import("#/api/agent-server-client-options")
     >("#/api/agent-server-client-options");

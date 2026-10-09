@@ -1,5 +1,5 @@
-import type { MCPConfig } from "@openhands/typescript-client";
-export type { MCPConfig } from "@openhands/typescript-client";
+import type { MCPConfig } from "@ajoel24/openhands-typescript-client";
+export type { MCPConfig } from "@ajoel24/openhands-typescript-client";
 import type { SkillCategoryId } from "@openhands/extensions/skills";
 import type { WorkspaceFileDiscovery } from "#/utils/workspace-file-discovery";
 

@@ -14,7 +14,7 @@
 import {
   AgentProfilesClient,
   type GetAgentProfileOptions,
-} from "@openhands/typescript-client/clients";
+} from "@ajoel24/openhands-typescript-client/clients";
 import type {
   AgentProfile,
   AgentProfileSummary,
@@ -24,7 +24,7 @@ import type {
   AgentProfileMutationResponse,
   ActivateAgentProfileResponse,
   ExposeSecretsMode,
-} from "@openhands/typescript-client";
+} from "@ajoel24/openhands-typescript-client";
 import { getAgentServerClientOptions } from "../agent-server-client-options";
 import { getActiveBackend } from "../backend-registry/active-store";
 import {

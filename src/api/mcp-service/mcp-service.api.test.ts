@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { MCPClient } from "@openhands/typescript-client/clients";
+import { MCPClient } from "@ajoel24/openhands-typescript-client/clients";
 import {
   setActiveSelection,
   setRegisteredBackends,
@@ -14,7 +14,7 @@ import McpService from "./mcp-service.api";
 import type { MCPServerConfig } from "#/types/mcp-server";
 import { REDACTED_MCP_SECRET_VALUE } from "#/utils/mcp-config";
 
-vi.mock("@openhands/typescript-client/clients", () => ({
+vi.mock("@ajoel24/openhands-typescript-client/clients", () => ({
   MCPClient: vi.fn(),
 }));
 

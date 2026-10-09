@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { ConversationClient } from "@openhands/typescript-client/clients";
+import { ConversationClient } from "@ajoel24/openhands-typescript-client/clients";
 import {
   __resetActiveStoreForTests,
   setActiveSelection,
@@ -14,7 +14,7 @@ const { respondToConfirmationMock, getEventCountMock } = vi.hoisted(() => ({
   getEventCountMock: vi.fn(),
 }));
 
-vi.mock("@openhands/typescript-client/clients", () => ({
+vi.mock("@ajoel24/openhands-typescript-client/clients", () => ({
   ConversationClient: vi.fn(function ConversationClientMock() {
     return {
       respondToConfirmation: respondToConfirmationMock,

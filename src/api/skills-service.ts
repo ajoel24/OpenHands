@@ -1,4 +1,4 @@
-import { SkillsClient } from "@openhands/typescript-client/clients";
+import { SkillsClient } from "@ajoel24/openhands-typescript-client/clients";
 import {
   SKILLS_CATALOG,
   type SkillCatalogEntry,

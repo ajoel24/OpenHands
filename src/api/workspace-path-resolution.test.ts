@@ -10,7 +10,7 @@ const {
   getHomeMock: vi.fn(),
 }));
 
-vi.mock("@openhands/typescript-client/clients", () => ({
+vi.mock("@ajoel24/openhands-typescript-client/clients", () => ({
   FileClient: class {
     constructor(options: unknown) {
       fileClientConstructorMock(options);

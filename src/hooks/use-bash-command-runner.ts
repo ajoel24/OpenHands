@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { BashClient } from "@openhands/typescript-client/clients";
+import { BashClient } from "@ajoel24/openhands-typescript-client/clients";
 import type { CommandResult } from "#/api/runtime-service/agent-server-runtime-service";
 import { getAgentServerClientOptions } from "#/api/agent-server-client-options";
 

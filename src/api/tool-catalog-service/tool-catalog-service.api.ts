@@ -1,5 +1,5 @@
-import { ToolClient } from "@openhands/typescript-client/clients";
-import type { ToolCatalogEntry } from "@openhands/typescript-client";
+import { ToolClient } from "@ajoel24/openhands-typescript-client/clients";
+import type { ToolCatalogEntry } from "@ajoel24/openhands-typescript-client";
 
 import { getAgentServerClientOptions } from "../agent-server-client-options";
 

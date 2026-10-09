@@ -12,10 +12,10 @@ import {
   mockJsonResponse,
 } from "./fetch-test-utils";
 
-vi.mock("@openhands/typescript-client/clients", async (importOriginal) => {
+vi.mock("@ajoel24/openhands-typescript-client/clients", async (importOriginal) => {
   const actual =
     await importOriginal<
-      typeof import("@openhands/typescript-client/clients")
+      typeof import("@ajoel24/openhands-typescript-client/clients")
     >();
 
   return {

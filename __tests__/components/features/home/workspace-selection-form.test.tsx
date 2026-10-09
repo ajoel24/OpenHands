@@ -52,10 +52,10 @@ vi.mock("#/hooks/use-tracking", () => ({
   }),
 }));
 
-vi.mock("@openhands/typescript-client/clients", async () => {
+vi.mock("@ajoel24/openhands-typescript-client/clients", async () => {
   const actual = await vi.importActual<
-    typeof import("@openhands/typescript-client/clients")
-  >("@openhands/typescript-client/clients");
+    typeof import("@ajoel24/openhands-typescript-client/clients")
+  >("@ajoel24/openhands-typescript-client/clients");
   return {
     ...actual,
     FileClient: vi.fn(function FileClientMock() {
