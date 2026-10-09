@@ -14,7 +14,7 @@ services:
   agent-canvas:
     # Overlays are resolved in order; most users only need the base file.
     # Published by .github/workflows/docker.yml on every main-branch push.
-    image: ${FACTORY_CANVAS_IMAGE:-ghcr.io/ajoel24/agent-canvas:main}
+    image: ${FACTORY_CANVAS_IMAGE:-ghcr.io/ajoel24/openhands-agent-canvas:main}
     ports:
       - "127.0.0.1:8000:8000"
     env_file:
@@ -36,7 +36,7 @@ services:
   #     --env-file docker/.env.factory up -d
   agent-server:
     profiles: ["server"]
-    image: ${FACTORY_SERVER_IMAGE:-ghcr.io/ajoel24/agent-server:main}
+    image: ${FACTORY_SERVER_IMAGE:-ghcr.io/ajoel24/openhands-agent-server:main}
     ports:
       - "127.0.0.1:8001:8001"
     env_file:
