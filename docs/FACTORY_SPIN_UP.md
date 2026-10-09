@@ -57,6 +57,21 @@ provider keys in Canvas → Settings → Secrets, and start a conversation.
 Lock it down on any shared host: set `TELEGRAM_ALLOWED_USERNAMES` to your
 handle(s). Unset means anyone who finds the bot can talk to your agent.
 
+## Standalone agent server (optional)
+
+The all-in-one container above already embeds an agent server — most users
+stop there. If you want the server without the UI (headless Telegram bot,
+or several sandboxes sharing one Canvas), enable the `server` profile:
+
+```sh
+docker compose -f docker/docker-compose.factory.yml --profile server \
+  --env-file docker/.env.factory up -d
+```
+
+This starts `ghcr.io/ajoel24/agent-server:main` on `127.0.0.1:8001`
+(published by the SDK fork's `factory-server-image.yml`). Set
+`SESSION_API_KEY` and `OH_SECRET_KEY` in `docker/.env.factory` first.
+
 ## Updating
 
 ```sh

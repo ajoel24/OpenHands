@@ -28,3 +28,28 @@ services:
     stdin_open: true
     tty: true
     restart: unless-stopped
+
+  # Standalone agent server (no Canvas UI). The all-in-one service above
+  # already embeds a server; enable this only for headless topologies
+  # (Telegram bot without UI, multiple sandboxes sharing one Canvas).
+  #   docker compose -f docker/docker-compose.factory.yml --profile server \
+  #     --env-file docker/.env.factory up -d
+  agent-server:
+    profiles: ["server"]
+    image: ${FACTORY_SERVER_IMAGE:-ghcr.io/ajoel24/agent-server:main}
+    ports:
+      - "127.0.0.1:8001:8001"
+    env_file:
+      - path: docker/.env.factory
+        required: true
+    environment:
+      - OH_SECRET_KEY=${OH_SECRET_KEY:-}
+      - SESSION_API_KEY=${SESSION_API_KEY:-}
+      - OH_TELEMETRY_EXPORTER=none
+      - DO_NOT_TRACK=1
+    volumes:
+      - ${HOME}/.openhands:/home/openhands/.openhands:z
+      - ${PROJECTS_PATH:-${HOME}/projects}:/projects:z
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
