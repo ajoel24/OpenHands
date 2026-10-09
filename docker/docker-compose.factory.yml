@@ -1,0 +1,30 @@
+# Factory fork — all-in-one runtime (prebuilt images, no local builds).
+#
+# Usage:
+#   cp docker/.env.factory.sample docker/.env.factory   # then fill in keys
+#   docker compose -f docker/docker-compose.factory.yml --env-file docker/.env.factory up -d
+#
+# Data survives restarts in ~/.openhands (settings, secrets, conversations)
+# and ~/projects (agent workspace). Pull new images with `docker compose ...
+# pull` before `up` to update.
+
+name: openhands-factory
+
+services:
+  agent-canvas:
+    # Overlays are resolved in order; most users only need the base file.
+    # Published by .github/workflows/docker.yml on every main-branch push.
+    image: ${FACTORY_CANVAS_IMAGE:-ghcr.io/ajoel24/agent-canvas:main}
+    ports:
+      - "127.0.0.1:8000:8000"
+    env_file:
+      - path: docker/.env.factory
+        required: true
+    environment:
+      - AGENT_CANVAS_ALLOW_LAN_SESSION_KEY=${AGENT_CANVAS_ALLOW_LAN_SESSION_KEY:-false}
+    volumes:
+      - ${HOME}/.openhands:/home/openhands/.openhands:z
+      - ${PROJECTS_PATH:-${HOME}/projects}:/projects:z
+    stdin_open: true
+    tty: true
+    restart: unless-stopped

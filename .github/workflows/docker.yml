@@ -33,7 +33,9 @@ permissions:
   packages: write
 
 env:
-  IMAGE: ${{ inputs.image != '' && inputs.image || 'ghcr.io/openhands/agent-canvas' }}
+  # Fork override: set the CANVAS_IMAGE repo variable (e.g. ghcr.io/<you>/agent-canvas)
+  # to publish somewhere else. Upstream repos set no variable, so the default stands.
+  IMAGE: ${{ inputs.image != '' && inputs.image || vars.CANVAS_IMAGE || 'ghcr.io/openhands/agent-canvas' }}
   # Use the PR head SHA for PR events so tags point at the actual code.
   RELEVANT_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
   RELEVANT_REF: ${{ github.head_ref != '' && format('refs/heads/{0}', github.head_ref) || github.ref }}
@@ -111,9 +113,12 @@ jobs:
           SHORT_SHA=$(echo "$RELEVANT_SHA" | cut -c1-7)
           echo "short_sha=$SHORT_SHA" >> "$GITHUB_OUTPUT"
 
-          # Resolve agent-server base image (input override > config/defaults.json)
+          # Resolve agent-server base image (input override > CANVAS_SERVER_IMAGE
+          # repo variable > config/defaults.json).
           if [ -n "$AGENT_SERVER_IMAGE_INPUT" ]; then
             echo "agent_server_image=$AGENT_SERVER_IMAGE_INPUT" >> "$GITHUB_OUTPUT"
+          elif [ -n "${{ vars.CANVAS_SERVER_IMAGE }}" ]; then
+            echo "agent_server_image=${{ vars.CANVAS_SERVER_IMAGE }}" >> "$GITHUB_OUTPUT"
           else
             echo "agent_server_image=$DEFAULT_AGENT_SERVER_IMAGE" >> "$GITHUB_OUTPUT"
           fi
@@ -190,7 +195,9 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           context: .
-          file: docker/Dockerfile
+          # Fork override: set the CANVAS_DOCKERFILE repo variable (e.g.
+          # docker/Dockerfile.local) to build a different Dockerfile.
+          file: ${{ vars.CANVAS_DOCKERFILE || 'docker/Dockerfile' }}
           platforms: ${{ matrix.platform }}
           push: true
           tags: ${{ steps.prep.outputs.tags }}
