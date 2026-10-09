@@ -10,6 +10,8 @@
     Run OpenHands, Claude Code, Codex, Gemini, or any ACP-compatible agent across local, remote, and cloud backends.
   </p>
 </div>
+> **Factory fork** ([ajoel24/OpenHands](https://github.com/ajoel24/OpenHands)): Telegram bot, pi / Zen / Muse Spark providers, prebuilt GHCR images. New here? Start with [Spinning up this factory fork](docs/FACTORY_SPIN_UP.md) instead of the Quickstart below.
+
 <div align="center">
   <a href="https://github.com/OpenHands/incubator-program"><img src="https://img.shields.io/badge/status-beta-blue?style=for-the-badge" alt="Project status beta"></a>
   <a href="https://github.com/OpenHands/OpenHands/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/OpenHands/OpenHands/ci.yml?branch=main&style=for-the-badge" alt="CI status"></a>

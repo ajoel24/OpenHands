@@ -9,8 +9,8 @@
     "minimumAgentServer": "1.51.0"
   },
   "images": {
-    "agentServer": "ghcr.io/openhands/agent-server",
-    "agentCanvas": "ghcr.io/openhands/agent-canvas"
+    "agentServer": "ghcr.io/ajoel24/agent-server",
+    "agentCanvas": "ghcr.io/ajoel24/agent-canvas"
   },
   "ports": {
     "agentServer": 18000,
