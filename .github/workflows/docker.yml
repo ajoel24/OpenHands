@@ -33,8 +33,6 @@ permissions:
   packages: write
 
 env:
-  # Fork override: set the CANVAS_IMAGE repo variable (e.g. ghcr.io/<you>/agent-canvas)
-  # to publish somewhere else. Upstream repos set no variable, so the default stands.
   IMAGE: ${{ inputs.image != '' && inputs.image || vars.CANVAS_IMAGE || 'ghcr.io/openhands/agent-canvas' }}
   # Use the PR head SHA for PR events so tags point at the actual code.
   RELEVANT_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
@@ -113,8 +111,6 @@ jobs:
           SHORT_SHA=$(echo "$RELEVANT_SHA" | cut -c1-7)
           echo "short_sha=$SHORT_SHA" >> "$GITHUB_OUTPUT"
 
-          # Resolve agent-server base image (input override > CANVAS_SERVER_IMAGE
-          # repo variable > config/defaults.json).
           if [ -n "$AGENT_SERVER_IMAGE_INPUT" ]; then
             echo "agent_server_image=$AGENT_SERVER_IMAGE_INPUT" >> "$GITHUB_OUTPUT"
           elif [ -n "${{ vars.CANVAS_SERVER_IMAGE }}" ]; then
