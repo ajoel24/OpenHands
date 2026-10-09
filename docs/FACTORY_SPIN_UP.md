@@ -68,7 +68,7 @@ docker compose -f docker/docker-compose.factory.yml --profile server \
   --env-file docker/.env.factory up -d
 ```
 
-This starts `ghcr.io/ajoel24/agent-server:main` on `127.0.0.1:8001`
+This starts `ghcr.io/ajoel24/openhands-agent-server:main` on `127.0.0.1:8001`
 (published by the SDK fork's `factory-server-image.yml`). Set
 `SESSION_API_KEY` and `OH_SECRET_KEY` in `docker/.env.factory` first.
 
@@ -117,9 +117,9 @@ Then point the compose file's `image:` at your local tags (or
 
 ## CI images
 
-- Canvas: this repo's `docker.yml` → `ghcr.io/ajoel24/agent-canvas:main`
+- Canvas: this repo's `docker.yml` → `ghcr.io/ajoel24/openhands-agent-canvas:main`
   (plus `sha-*` tags). Override with repo variables: `CANVAS_IMAGE`,
   `CANVAS_DOCKERFILE`, `CANVAS_SERVER_IMAGE`.
 - Agent server: the SDK fork's `factory-server-image.yml` →
-  `ghcr.io/ajoel24/agent-server:main` (plus `latest`, `sha-*`,
+  `ghcr.io/ajoel24/openhands-agent-server:main` (plus `latest`, `sha-*`,
   `<version>-python` for the canvas base pin).
